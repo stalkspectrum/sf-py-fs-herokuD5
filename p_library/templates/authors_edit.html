@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<HTML LANG="ru">
+<HEAD>
+    <TITLE>Форма создания и редактирования авторов</TITLE>
+    <META CHARSET="utf-8">
+</HEAD>
+<BODY>
+    <FORM METHOD="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <INPUT TYPE="submit" VALUE="Сохранить">
+    </FORM>
+</BODY>
+</HTML>

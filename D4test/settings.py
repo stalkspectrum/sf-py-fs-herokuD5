@@ -27,6 +27,7 @@ SECRET_KEY = 'd$r-!veoxd2houpf9t@9$63dip*ep1$fk7d3f_f1apbac93uxp'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    '127.0.0.1',
     'localhost',
     'd5python.herokuapp.com',
 ]

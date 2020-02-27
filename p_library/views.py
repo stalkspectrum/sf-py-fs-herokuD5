@@ -1,9 +1,22 @@
-from django.shortcuts import render
 from django.http import HttpResponse
+from django.shortcuts import redirect, render
 from django.template import loader
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, ListView
 
-from django.shortcuts import redirect
-from p_library.models import Book, Publisher
+from p_library.models import Author, Book, Publisher
+from p_library.forms import AuthorForm
+
+class AuthorList(ListView):
+    model = Author
+    template_name = 'authors_list.html'
+
+class AuthorEdit(CreateView):
+    model = Author
+    form_class = AuthorForm
+    #success_url = reverse_lazy('p_library:authors_list')
+    success_url = reverse_lazy('authors_list')
+    template_name = 'authors_edit.html'
 
 def index(request):
     template = loader.get_template('index.html')

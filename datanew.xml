@@ -35,6 +35,31 @@
         <field name="birth_year" type="SmallIntegerField">1967</field>
         <field name="country" type="CharField">ZA</field>
     </object>
+    <object model="p_library.author" pk="8">
+        <field name="full_name" type="TextField">Стас Куняев</field>
+        <field name="birth_year" type="SmallIntegerField">1932</field>
+        <field name="country" type="CharField">SU</field>
+    </object>
+    <object model="p_library.author" pk="9">
+        <field name="full_name" type="TextField">William Shakespeare</field>
+        <field name="birth_year" type="SmallIntegerField">1564</field>
+        <field name="country" type="CharField">UK</field>
+    </object>
+    <object model="p_library.author" pk="10">
+        <field name="full_name" type="TextField">Roger Joseph Zelazny</field>
+        <field name="birth_year" type="SmallIntegerField">1937</field>
+        <field name="country" type="CharField">US</field>
+    </object>
+    <object model="p_library.author" pk="11">
+        <field name="full_name" type="TextField">Александр Романович Беляев</field>
+        <field name="birth_year" type="SmallIntegerField">1884</field>
+        <field name="country" type="CharField">RU</field>
+    </object>
+    <object model="p_library.author" pk="13">
+        <field name="full_name" type="TextField">Борис Стругацкий</field>
+        <field name="birth_year" type="SmallIntegerField">1933</field>
+        <field name="country" type="CharField">SU</field>
+    </object>
     <object model="p_library.publisher" pk="1">
         <field name="name" type="TextField">Азбука</field>
         <field name="pub_country" type="CharField">RU</field>

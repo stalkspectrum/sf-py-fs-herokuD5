@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<HTML LANG="ru">
+<HEAD>
+    <TITLE>Список авторов</TITLE>
+    <META CHARSET="utf-8">
+</HEAD>
+<BODY>
+    <UL>
+        {% for author in object_list %}
+        <LI>{{ author.full_name }}</LI>
+        {% endfor %}
+    </UL>
+</BODY>
+</HTML>
