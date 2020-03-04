@@ -1,4 +1,5 @@
-from django.http import HttpResponse
+from django.forms import formset_factory
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.template import loader
 from django.urls import reverse_lazy
@@ -29,6 +30,30 @@ def index(request):
         'numbers': numbers,
     }
     return HttpResponse(template.render(biblio_data, request))
+
+def author_create_many(request):
+    ''' Получим класс, который будет создавать формы. Параметр extra=2 означает,
+    что на странице с несколькими формами изначально будет появляться 2 формы
+    создания авторов.
+    '''
+    AuthorFormSet = formset_factory(AuthorForm, extra=2)
+    ''' Обработчик будет обрабатывать GET- и POST-запросы. POST-запрос будет
+    содержать в себе уже заполненные данные формы.
+    '''
+    if request.method == 'POST':
+        ''' Формсет заполняется данными, пришедшими в запросе. prefix="*" - это
+        можно иметь на странице не только несколько форм, но и несколько
+        формсетов, а параметр позволяет их отличать при запросе.
+        '''
+        author_formset = AuthorFormSet(request.POST, request.FILES, prefix='authors')
+        if author_formset.is_valid():   # Проверка валидности формы
+            for author_form in author_formset:
+                author_form.save()      # Сохранение каждой формы в формсете
+            return HttpResponseRedirect(reverse_lazy('authors_list'))
+    else:   # Если получен GET-запрос, в ответ просто отрисовка форм
+        # Формсет инициализируется и ниже передаётся в контекст шаблона
+        author_formset = AuthorFormSet(prefix='authors')
+    return render(request, 'manage_authors.html', {'author_formset': author_formset})
 
 def publishers_list(request):
     template = loader.get_template('publishers.html')

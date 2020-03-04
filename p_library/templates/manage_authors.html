@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<HTML LANG="ru">
+<HEAD>
+    <TITLE>Create Multiple Authors Forms</TITLE>
+    <META CHARSET="UTF-8">
+</HEAD>
+<BODY>
+    <FORM METHOD="post">
+        {% csrf_token %}
+        {% for form in author_formset %}
+            {{ form.as_ul }}
+            <BR>
+        {% endfor %}
+    </FORM>
+</BODY>
+</HTML>
