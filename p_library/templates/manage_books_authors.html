@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <HTML LANG="ru">
 <HEAD>
-    <TITLE>Create Multiple Authors Forms</TITLE>
+    <TITLE>Create Multiple Authors And Books Forms</TITLE>
     <META CHARSET="UTF-8">
 </HEAD>
 <BODY>
     <FORM METHOD="post">
         {% csrf_token %}
         {% for form in author_formset %}
+            {{ form.as_ul }}
+            <BR>
+        {% endfor %}
+        {% for form in book_formset %}
             {{ form.as_ul }}
             <BR>
         {% endfor %}

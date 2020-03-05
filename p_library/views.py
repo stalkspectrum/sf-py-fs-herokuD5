@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView
 
 from p_library.models import Author, Book, Publisher
-from p_library.forms import AuthorForm
+from p_library.forms import AuthorForm, BookForm
 
 class AuthorList(ListView):
     model = Author
@@ -54,6 +54,23 @@ def author_create_many(request):
         # Формсет инициализируется и ниже передаётся в контекст шаблона
         author_formset = AuthorFormSet(prefix='authors')
     return render(request, 'manage_authors.html', {'author_formset': author_formset})
+
+def books_authors_create_many(request):
+    AuthorFormSet = formset_factory(AuthorForm, extra=2)
+    BookFormSet = formset_factory(BookForm, extra=2)
+    if request.method == 'POST':
+        author_formset = AuthorFormSet(request.POST, request.FILES, prefix='authors')
+        book_formset = BookFormSet(request.POST, request.FILES, prefix='books')
+        if author_formset.is_valid() and book_formset.is_valid():
+            for author_form in author_formset:
+                author_form.save()
+            for book_form in book_formset:
+                book_form.save()
+            return HttpResponseRedirect(reverse_lazy('authors_list'))
+    else:
+        author_formset = AuthorFormSet(prefix='authors')
+        book_formset = BookFormSet(prefix='books')
+    return render(request, 'manage_books_authors.html', {'author_formset': author_formset, 'book_formset': book_formset})
 
 def publishers_list(request):
     template = loader.get_template('publishers.html')

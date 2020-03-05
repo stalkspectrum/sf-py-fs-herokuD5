@@ -27,5 +27,6 @@ urlpatterns = [
     path('index/book_decrement/', views.book_decrement),
     path('authors/', views.AuthorList.as_view(), name='authors_list'),
     path('author/create/', views.AuthorEdit.as_view(), name='author_create'),
-    path('author/create_many', views.author_create_many, name='author_create_many'),
+    path('author/create_many/', views.author_create_many, name='author_create_many'),
+    path('author_book/create_many/', views.books_authors_create_many, name='books_authors_create_many'),
 ]
