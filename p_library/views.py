@@ -5,7 +5,7 @@ from django.template import loader
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView
 
-from p_library.models import Author, Book, Publisher
+from p_library.models import Author, Book, Publisher, Reader
 from p_library.forms import AuthorForm, BookForm
 
 class AuthorList(ListView):

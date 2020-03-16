@@ -26,3 +26,10 @@ class Book(models.Model):
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE, null=True, blank=True, related_name='books')
     def __str__(self):
         return self.title
+
+class Reader(models.Model):
+    rname = models.TextField()
+    rcontact = models.TextField()
+    #####book_handled = models.ManyToManyField(Book)
+    def __str__(self):
+        return self.rname
