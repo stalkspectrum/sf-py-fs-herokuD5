@@ -19,6 +19,9 @@ class AuthorEdit(CreateView):
     success_url = reverse_lazy('authors_list')
     template_name = 'authors_edit.html'
 
+def root_page(request):
+    return render(request, 'root.html')
+
 def index(request):
     template = loader.get_template('index.html')
     books = Book.objects.all()

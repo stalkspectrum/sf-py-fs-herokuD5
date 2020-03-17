@@ -30,6 +30,6 @@ class Book(models.Model):
 class Reader(models.Model):
     rname = models.TextField()
     rcontact = models.TextField()
-    #####book_handled = models.ManyToManyField(Book)
+    book_handled = models.ManyToManyField(Book)
     def __str__(self):
         return self.rname

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<HTML LANG="ru">
+<HEAD>
+    <TITLE>D5.11 Домашнее задание</TITLE>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+</HEAD>
+<BODY>
+    <H1>Задания из Практики модуля D4</H1>
+    <P>Сервер развёрнут на платформе Heroku. Генерит случайные заполняющие фразы по заготовке.</P>
+    <P>GET <A HREF="/api/generate/">https://c5python.herokuapp.com/api/generate/</A> возвращает JSON с ключом "message" и значением в виде одного сгенерированного сообщения.</P>
+    <P>GET <A HREF="/api/generate/5">https://c5python.herokuapp.com/api/generate/&lt;num:int&gt;</A> возвращает JSON с ключом "message", который содержит список из <B>num</B> сгенерированных сообщений по той же схеме.</P>
+    <HR>
+    <H1>Задания из Практики модуля D5</H1>
+    <P>GET <A HREF="/success">https://c5python.herokuapp.com/success</A> возвращает ответ HTTP со статусом 200 OK.</P>
+    <P>GET <A HREF="/fail">https://c5python.herokuapp.com/fail</A> возвращает ответ HTTP со статусом 500 "Internal Server Error".</P>
+    <P>Не вышло интегрировать sentry-sdk с модулем logging.</P>
+    <HR>
+</BODY>
+</HTML>
